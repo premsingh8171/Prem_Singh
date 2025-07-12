@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitya Nand Pandey - Mobile Developer & Tech Lead</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: var(--dark-color);
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .profile-info p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--light-color);
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-category {
+            margin-bottom: 30px;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 5px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -17px;
+            top: 15px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -17px;
+            top: 15px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-role {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-company {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .timeline-description p {
+            margin-bottom: 10px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: var(--dark-color);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 15px;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .education-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .education-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .education-info p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* Awards Section */
+        .awards-list {
+            list-style: none;
+        }
+        
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .award-icon {
+            font-size: 30px;
+            color: var(--accent-color);
+            margin-right: 20px;
+        }
+        
+        .award-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .contact-card-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-img">NP</div>
+                    <div class="profile-info">
+                        <h1>Nitya Nand Pandey</h1>
+                        <p>Mobile Developer & Tech Lead</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:07nitya@gmail.com">07nitya@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+919411294189">+91-9411294189</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/07nitya/" target="_blank">linkedin.com/in/07nitya</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/NityaNandPandey" target="_blank">github.com/NityaNandPandey</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Over 13+ years of experience in Information Technology spanning design, development, testing, and implementation of mobile technology-based enterprise applications. Full project life cycle implementation experience.</p>
+                    <p>Energetic and curiosity-driven Android Developer with 8+ years of experience writing top-quality clean code for high-paced businesses. Expertise in Native Android application development with experience in all stages of development for dynamic applications.</p>
+                    <p>Well-versed in numerous programming languages including HTML5, Angular TypeScript, JavaScript, CSS, Java OOP, Kotlin, FCM, and GraphQL. Strong background in app development with a focus on user-friendly interfaces.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3>Mobile Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Dart</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Android</span>
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">iOS</span>
+                            <span class="skill-tag">Swift</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design Patterns</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MVC</span>
+                            <span class="skill-tag">MVP</span>
+                            <span class="skill-tag">MVVM</span>
+                            <span class="skill-tag">Singleton</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Services</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">SOAP API</span>
+                            <span class="skill-tag">GraphQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Room Database</span>
+                            <span class="skill-tag">Firebase Database</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 2023 - Present</div>
+                        <div class="timeline-role">Tech Lead</div>
+                        <div class="timeline-company">Care Health Insurance (Religare), Gurgaon</div>
+                        <div class="timeline-description">
+                            <p>Led development of comprehensive healthcare applications providing cashless treatment access at 24,800+ network hospitals.</p>
+                            <p>Conducted feasibility studies, architecture design, and implemented industry best practices.</p>
+                            <p>Led coding, UI design, and testing for multiple apps (Care Health, Instabiz, Faveo Plus).</p>
+                            <p>Oversaw deployment to Play Store for both Android and iOS platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">March 2020 - August 2023</div>
+                        <div class="timeline-role">Mobile Team Leader</div>
+                        <div class="timeline-company">EServify Pvt Ltd (Onedios), Noida</div>
+                        <div class="timeline-description">
+                            <p>Led development for OneDios, India's single window to all brands, their warranties and AMCs.</p>
+                            <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
+                            <p>Led development for multiple applications (OneDios, OneDios Business Partner, Pigeon Partner, OnePro CRM, Inalsa Connect).</p>
+                            <p>Managed deployment to Play Store for both Android and iOS platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 2016 - March 2020</div>
+                        <div class="timeline-role">Senior Android Application Developer</div>
+                        <div class="timeline-company">Optimization Software Technologies, Sahibabad</div>
+                        <div class="timeline-description">
+                            <p>Worked as Project Team Lead collaborating with US-based client stakeholders.</p>
+                            <p>Designed and developed architecture for mobile applications across various domains.</p>
+                            <p>Successfully delivered 25+ mobile applications to clients.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 2015 - October 2016</div>
+                        <div class="timeline-role">Android Application Developer</div>
+                        <div class="timeline-company">IMedia Designs & Technology Inc, Noida</div>
+                        <div class="timeline-description">
+                            <p>Developed applications for Canadian clients in travel and hotel booking domains.</p>
+                            <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">February 2013 - November 2014</div>
+                        <div class="timeline-role">Android Developer</div>
+                        <div class="timeline-company">Appsquadz Technologies Pvt Ltd, Noida</div>
+                        <div class="timeline-description">
+                            <p>Developed 16+ Android applications across social, e-commerce, travel, and chat domains.</p>
+                            <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-hand-holding-medical"></i></div>
+                    <div class="project-info">
+                        <h3>Care Health</h3>
+                        <p>Comprehensive healthcare application providing access to cashless treatment at 24,800+ network hospitals with features for health insurance plan management.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Android</span>
+                            <span class="project-tag">iOS</span>
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Healthcare</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-cogs"></i></div>
+                    <div class="project-info">
+                        <h3>OneDios</h3>
+                        <p>India's single window to all brands, their warranties and AMCs, simplifying customer service processes for appliance owners.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Android</span>
+                            <span class="project-tag">iOS</span>
+                            <span class="project-tag">Customer Service</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
+                    <div class="project-info">
+                        <h3>HerDUM Syst</h3>
+                        <p>Innovative application that received recognition for most innovative features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Android</span>
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Certifications</h2>
+            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>B.Tech in Information Technology</h3>
+                        <p>Uttar Pradesh Technical University</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Oracle Certified Professional Java SE Programmer</h3>
+                        <p>OCPJP (1Z0-808®)</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Certification Level 1</h3>
+                        <p>Angular Developers</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Infosys Certified Flutter Developer</h3>
+                        <p>Flutter Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Honors & Awards</h2>
+            </div>
+            <ul class="awards-list">
+                <li class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-info">
+                        <h3>Best Overall App Android (H2 2017)</h3>
+                        <p>Recognition for excellence in Android app development.</p>
+                    </div>
+                </li>
+                <li class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="award-info">
+                        <h3>Best TP User Debate Competition (3rd Position)</h3>
+                        <p>Recognition for excellence in technical debate.</p>
+                    </div>
+                </li>
+                <li class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="award-info">
+                        <h3>Most Innovative Feature App: HerDUM Syst</h3>
+                        <p>Recognition for creating innovative features in mobile application.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:07nitya@gmail.com">07nitya@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919411294189">+91-9411294189</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/07nitya/" target="_blank">linkedin.com/in/07nitya</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/NityaNandPandey" target="_blank">github.com/NityaNandPandey</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/07nitya/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/NityaNandPandey" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://stackoverflow.com/users/4345743/nitya-nand-pandey" target="_blank"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://join.skype.com/invite/rtOCphGoVN1R" target="_blank"><i class="fab fa-skype"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Nitya Nand Pandey. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
