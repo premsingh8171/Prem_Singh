@@ -68,13 +68,13 @@
         }
         
         .profile-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.0rem;
+            margin-bottom: 7px;
         }
         
         .profile-info p {
             font-size: 1.2rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .contact-info {
@@ -506,42 +506,101 @@
                 margin: 10px 0;
             }
         }
+		
+		.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+/* Profile image styling with animations */
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.profile-img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-weight: none;
+  text-align: center;
+  color: #666;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-section">
-                    <div class="profile-img">NP</div>
-                    <div class="profile-info">
-                        <h1>Nitya Nand Pandey</h1>
-                        <p>Mobile Developer & Tech Lead</p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:premsingh8171@gmail.com">premsingh8171@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:+919267909750">+91-9267909750</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/prem-singh-daksha-82az/" target="_blank">Linkedin</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <a href="https://github.com/premsingh8171" target="_blank">Github</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+ <!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="profile-section">
+        <div class="profile-img">
+          <img src="D:\prem\premsingh\46933759.jfif" alt="Prem Singh" />
         </div>
-    </header>
-    
+        <div class="profile-info">
+          <h1>Prem Singh</h1>
+          <p>Mobile Application Developer & Tech Lead</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:premsingh8171@gmail.com">premsingh8171@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+919267909750">+91-9267909750</a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/prem-singh-daksha-82az/" target="_blank">Linkedin</a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/premsingh8171" target="_blank">Github</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+   
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -565,7 +624,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Over 6+ years of experience in Information Technology spanning design, development, testing, and implementation of mobile technology-based enterprise applications. Full project life cycle implementation experience.</p>
-                    <p>Energetic and curiosity-driven Android Developer with 8+ years of experience writing top-quality clean code for high-paced businesses. Expertise in Native Android application development with experience in all stages of development for dynamic applications.</p>
+                    <p>Energetic and curiosity-driven Android Developer with 6 years of experience writing top-quality clean code for high-paced businesses. Expertise in Native Android application development with experience in all stages of development for dynamic applications.</p>
                     <p>Well-versed in numerous programming languages including HTML5, Angular TypeScript, JavaScript, CSS, Java OOP, Kotlin, FCM, and GraphQL. Strong background in app development with a focus on user-friendly interfaces.</p>
                 </div>
                 <div class="skills">
@@ -576,6 +635,8 @@
                             <span class="skill-tag">Flutter</span>
                             <span class="skill-tag">Maui</span>
                             <span class="skill-tag">Android</span>
+                            <span class="skill-tag">Android Automotive OS</span>
+                            <span class="skill-tag">Android Library</span>
                             <span class="skill-tag">Kotlin</span>
                             <span class="skill-tag">Java</span>
                             <span class="skill-tag">iOS</span>
@@ -624,22 +685,9 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">August 2023 - Present</div>
-                        <div class="timeline-role">Tech Lead</div>
-                        <div class="timeline-company">Care Health Insurance (Religare), Gurgaon</div>
-                        <div class="timeline-description">
-                            <p>Led development of comprehensive healthcare applications providing cashless treatment access at 24,800+ network hospitals.</p>
-                            <p>Conducted feasibility studies, architecture design, and implemented industry best practices.</p>
-                            <p>Led coding, UI design, and testing for multiple apps (Care Health, Instabiz, Faveo Plus).</p>
-                            <p>Oversaw deployment to Play Store for both Android and iOS platforms.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">March 2020 - August 2023</div>
-                        <div class="timeline-role">Mobile Team Leader</div>
-                        <div class="timeline-company">EServify Pvt Ltd (Onedios), Noida</div>
+                        <div class="timeline-date">Jun 2025 - Working</div>
+                        <div class="timeline-role">Senior Software Engineer</div>
+                        <div class="timeline-company">Onedios Services Pvt LTD (Onedios), Noida</div>
                         <div class="timeline-description">
                             <p>Led development for OneDios, India's single window to all brands, their warranties and AMCs.</p>
                             <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
@@ -648,11 +696,12 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">November 2016 - March 2020</div>
-                        <div class="timeline-role">Senior Android Application Developer</div>
-                        <div class="timeline-company">Optimization Software Technologies, Sahibabad</div>
+                        <div class="timeline-date">April 2022 - April 2025</div>
+                        <div class="timeline-role">Technology Analyst</div>
+                        <div class="timeline-company">Infosys LTD, Gurgaon</div>
                         <div class="timeline-description">
                             <p>Worked as Project Team Lead collaborating with US-based client stakeholders.</p>
                             <p>Designed and developed architecture for mobile applications across various domains.</p>
@@ -662,23 +711,25 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">November 2015 - October 2016</div>
-                        <div class="timeline-role">Android Application Developer</div>
-                        <div class="timeline-company">IMedia Designs & Technology Inc, Noida</div>
+                        <div class="timeline-date">April 2021 - March 2022</div>
+                        <div class="timeline-role">Sr. Android Developer</div>
+                        <div class="timeline-company">Twiclo Technology Pvt LTD, Gurgaon</div>
                         <div class="timeline-description">
                             <p>Developed applications for Canadian clients in travel and hotel booking domains.</p>
                             <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item">
+                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">February 2013 - November 2014</div>
+                        <div class="timeline-date">September 2019 - March 2021</div>
                         <div class="timeline-role">Android Developer</div>
-                        <div class="timeline-company">Appsquadz Technologies Pvt Ltd, Noida</div>
+                        <div class="timeline-company">Onedios Services Pvt LTD (Onedios), Noida</div>
                         <div class="timeline-description">
-                            <p>Developed 16+ Android applications across social, e-commerce, travel, and chat domains.</p>
-                            <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
+                            <p>Led development for OneDios, India's single window to all brands, their warranties and AMCs.</p>
+                            <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
+                            <p>Led development for multiple applications (OneDios, OneDios Business Partner, Pigeon Partner, OnePro CRM, Inalsa Connect).</p>
+                            <p>Managed deployment to Play Store for both Android and iOS platforms.</p>
                         </div>
                     </div>
                 </div>
@@ -746,7 +797,7 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="education-info">
-                        <h3>B.Tech in Information Technology</h3>
+                        <h3>B.Tech in Computer Science and Engineering</h3>
                         <p>Uttar Pradesh Technical University</p>
                     </div>
                 </div>
@@ -755,8 +806,13 @@
                         <i class="fas fa-certificate"></i>
                     </div>
                     <div class="education-info">
-                        <h3>Oracle Certified Professional Java SE Programmer</h3>
-                        <p>OCPJP (1Z0-808®)</p>
+                        <h3>GitHub Copilot Certified</h3>
+                       <p>
+						  <a href="https://www.credly.com/badges/910d1999-7de8-436b-b32c-e90e3744248e" target="_blank">
+							View GitHub Copilot Certification Badge
+						  </a>
+						</p>
+		
                     </div>
                 </div>
                 <div class="education-card">
