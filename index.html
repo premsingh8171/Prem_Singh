@@ -559,8 +559,105 @@ a:hover {
   text-decoration: none;
 }
 
+/* have write css for Show more details section ui design */
+ /* <style> */
+ .project-list {
+     margin-bottom: 20px;
+     border-left: 4px solid #007bff;
+     padding-left: 16px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ .project-title {
+     font-weight: 700;
+     font-size: 1.0rem;
+     color: #2c2929;
+     cursor: pointer;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     user-select: none;
+ }
+ .toggle-btn {
+     background: none;
+     border: none;
+     color: #007bff;
+     font-weight: 600;
+     cursor: pointer;
+     font-size: 0.95rem;
+     padding: 4px 8px;
+     transition: color 0.3s ease;
+ }
+ .toggle-btn:hover {
+     color: #0056b3;
+ }
+ .details {
+     margin-top: 8px;
+     display: none;
+     background-color: #f4f8ff;
+     border-radius: 6px;
+     padding: 12px 16px;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+ }
+ .details ul {
+     margin: 0;
+     padding-left: 20px;
+     color: #333;
+ }
+ .details li {
+     padding: 6px 0;
+     line-height: 1.4;
+ }
+ a.project-link {
+     color: #0056b3;
+     text-decoration: none;
+     font-weight: 600;
+ }
+ a.project-link:hover {
+     text-decoration: underline;
+ }
+  </style> 
 
-    </style>
+<head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      function toggleDetails(detailsId, btn) {
+        const details = document.getElementById(detailsId);
+        const isHidden = details.style.display === 'none' || details.style.display === '';
+
+        if (isHidden) {
+          details.style.display = 'block';
+          btn.innerText = 'Show less';
+          btn.setAttribute('aria-expanded', 'true');
+          details.setAttribute('aria-hidden', 'false');
+        } else {
+          details.style.display = 'none';
+          btn.innerText = 'Show more';
+          btn.setAttribute('aria-expanded', 'false');
+          details.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      document.querySelectorAll('.project-title').forEach(section => {
+        const btn = section.querySelector('.toggle-btn');
+        const detailsId = section.nextElementSibling.id;
+
+        section.addEventListener('click', e => {
+          if (e.target.tagName.toLowerCase() === 'a' || e.target === btn) return;
+          toggleDetails(detailsId, btn);
+        });
+
+        btn.addEventListener('click', e => {
+          toggleDetails(detailsId, btn);
+          e.stopPropagation();
+        });
+      });
+    });
+  </script>
+</head>
+
+
+
+</style>
 </head>
 <body>
 
@@ -609,7 +706,7 @@ a:hover {
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#awards">Awards</a></li>
+                <!-- <li><a href="#awards">Awards</a></li>-->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -631,14 +728,16 @@ a:hover {
                     <div class="skill-category">
                         <h3>Mobile Technologies</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Dart</span>
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Maui</span>
                             <span class="skill-tag">Android</span>
                             <span class="skill-tag">Android Automotive OS</span>
                             <span class="skill-tag">Android Library</span>
                             <span class="skill-tag">Kotlin</span>
                             <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Dart</span>
+                            <span class="skill-tag">Maui</span>
+                            <span class="skill-tag">Maui Blazor</span>
+                            <span class="skill-tag">Xamarin</span>
                             <span class="skill-tag">iOS</span>
                             <span class="skill-tag">Swift</span>
                         </div>
@@ -685,7 +784,7 @@ a:hover {
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">Jun 2025 - Working</div>
+                        <div class="timeline-date">23 Jun 2025 - Working</div>
                         <div class="timeline-role">Senior Software Engineer</div>
                         <div class="timeline-company">Onedios Services Pvt LTD (Onedios), Noida</div>
                         <div class="timeline-description">
@@ -693,43 +792,270 @@ a:hover {
                             <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
                             <p>Led development for multiple applications (OneDios, OneDios Business Partner, Pigeon Partner, OnePro CRM, Inalsa Connect).</p>
                             <p>Managed deployment to Play Store for both Android and iOS platforms.</p>
+                            <ul> 
+                                <li> OneDios: Services Supermarket (Android Application - Java) <a href="https://play.google.com/store/apps/details?id=com.evg.onedios&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                <li> OneDios Business Partner (Flutter Application) <a href="https://play.google.com/store/apps/details?id=com.onedieos.dealerapp.loginsignupactivity&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                <li> Pigeon Partner (Flutter Application) <a href="https://play.google.com/store/apps/details?id=com.pigeon.partner&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                <li> OnePro CRM (Flutter Application) <a href="https://play.google.com/store/apps/details?id=com.oneprocrm.partnerapp&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                <li> Inalsa Connect (Flutter Application) <a href="https://play.google.com/store/apps/details?id=com.inalsa.InalsaConnect&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                             </ul>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">April 2022 - April 2025</div>
+                        <div class="timeline-date">04 April 2022 - 22 May 2025</div>
                         <div class="timeline-role">Technology Analyst</div>
                         <div class="timeline-company">Infosys LTD, Gurgaon</div>
                         <div class="timeline-description">
-                            <p>Worked as Project Team Lead collaborating with US-based client stakeholders.</p>
+                            <p>Worked as Senior Mobile Applicaation developer collaborating with US-based client stakeholders. Like- Nike, Tomra and PoleStar.</p>
                             <p>Designed and developed architecture for mobile applications across various domains.</p>
-                            <p>Successfully delivered 25+ mobile applications to clients.</p>
+                            <p>Successfully delivered 3+ mobile applications to clients.</p>
+                             <p>----------------------------------------------------------------------------------</p>
+                            <h1>Worked on <Project:-> Projects:-</Project:-></h1><br>
+                           <!-- / -->
+
+                                        <div class="project-list">
+                                        <div class="project-title" > 
+                                            Tomra Distributor Counting Android Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="tomraDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Developed Android app integrated with AWS IoT for real-time product tracking using RFID tags, QR codes, and barcodes.</li>
+                                            <li>Implemented Koamtac SDK for hardware scanning and dynamic product info display.</li>
+                                            <li>Integrated MQTT protocol for instant updates and efficient data exchange.</li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title" >
+                                            Nike RFID .NET MAUI Mobile Application (Visual Studio – C#, .NET)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="nikeMauiDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Led development of .NET MAUI cross-platform app for product tracking using Zebra RFID scanner and AWS IoT.</li>
+                                            <li>Captured RFID scan data via SDK and event handlers.</li>
+                                            <li>Implemented MQTT for real-time communication with AWS IoT.</li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title">
+                                            Nike Android Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="nikeAndroidDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Working on feature development, UI enhancements, bug fixes, support, and maintenance.</li>
+                                            <li><a href="https://play.google.com/store/apps/details?id=com.nike.omega&hl=en" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                            <!-- onclick="toggleDetails('polestarDetails', this)" -->
+                                        <div class="project-title">
+                                            Polestar Automotive Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="polestarDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Android Automotive AAOS app displaying detailed car component information.</li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title">
+                                            Novartis Event Engagement Application (Android Studio - Java)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="novartisDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Maintenance and support for event engagement solution.</li>
+                                            <li><a href="https://play.google.com/store/apps/details?id=com.novartis.pharma.gbl.events.ext" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <!-- <script>
+                                            function toggleDetails(detailsId, btn) {
+                                                const details = document.getElementById(detailsId);
+                                                const isHidden = details.style.display === 'none' || details.style.display === '';
+
+                                                if (isHidden) {
+                                                details.style.display = 'block';
+                                                btn.innerText = 'Show less';
+                                                btn.setAttribute('aria-expanded', 'true');
+                                                details.setAttribute('aria-hidden', 'false');
+                                                } else {
+                                                details.style.display = 'none';
+                                                btn.innerText = 'Show more';
+                                                btn.setAttribute('aria-expanded', 'false');
+                                                details.setAttribute('aria-hidden', 'true');
+                                                }
+                                            }
+
+                                            document.querySelectorAll('.project-title').forEach(section => {
+                                                const btn = section.querySelector('.toggle-btn');
+                                                const detailsId = section.nextElementSibling.id;
+
+                                                // Toggle on clicking the entire title except when clicking a link or button
+                                                section.addEventListener('click', e => {
+                                                if (e.target.tagName.toLowerCase() === 'a' || e.target === btn) return;
+                                                toggleDetails(detailsId, btn);
+                                                });
+
+                                                // Toggle on clicking the button, stop click from bubbling up to parent's listener
+                                                btn.addEventListener('click', e => {
+                                                toggleDetails(detailsId, btn);
+                                                e.stopPropagation();
+                                                });
+                                            });
+                                            </script> -->
+
+
+                                       
+
                         </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">April 2021 - March 2022</div>
+                        <div class="timeline-date">21 April 2021 - 30 March 2022</div>
                         <div class="timeline-role">Sr. Android Developer</div>
-                        <div class="timeline-company">Twiclo Technology Pvt LTD, Gurgaon</div>
+                        <div class="timeline-company">Twiclo Technologies Pvt LTD, Gurgaon</div>
                         <div class="timeline-description">
-                            <p>Developed applications for Canadian clients in travel and hotel booking domains.</p>
+                            <p>Fidoo is a multi-service delivery application offering fast and reliable delivery of food, groceries, medicines, and packages with a focus on affordability, transparency, and user convenience.</p>
+                            <p>Developed Fidoo Customer, Fiddo Rider and Fidoo Merchant Application with using Kotlin and MVVM architecture.</p>
                             <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
+                             <p>----------------------------------------------------------------------------------</p>
+                            <h1>Worked on <Project:-> Projects:-</Project:-></h1><br>
+
+                            <div class="project-list">
+                                <!-- onclick="toggleDetails('fidooCustomerDetails', this)" -->
+                                        <div class="project-title" >
+                                            Fidoo Customer Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="fidooCustomerDetails" aria-hidden="true">
+                                            <ul>
+                                               <li>Developed Login/Signup module with OTP verification for secure user authentication.</li>
+                                               <li>Designed and implemented Dashboard, Category Listing, and Product Listing UI for enhanced user experience.</li>
+                                               <li>Integrated push notifications for real-time user engagement.</li>
+                                               <li>Integrated Google Maps APIs (Directions, Places, Geolocation) for live order tracking functionality.</li>
+                                               <li>Built Restaurant module with customizable products and cart functionality using Room DB.</li>
+                                               <li>Implemented dynamic rewards system (e.g., "Share & Earn" for free delivery and app referrals).</li>
+                                               <li>Integrated Razorpay payment gateway for seamless in-app transactions.</li>
+                                               <li>Integrated Firebase Crashlytics, Analytics, and Push Notifications for performance monitoring and user insights.</li>
+                                               <li>Successfully published and managed application live on the Google Play Store.</li>
+                                               <li><a href="https://play.google.com/store/apps/details?id=com.fidoo.user" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            
+                                            </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title" >
+                                            Fidoo Rider  Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="fidooRiderDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Developed Rider Registration and Login modules for secure onboarding and authentication.</li>
+                                            <li>Implemented Broadcast Receiver to handle real-time updates for incoming orders.</li>
+                                            <li>Integrated Google Maps and related APIs for live tracking of orders and rider locations.</li>
+                                            <li>Successfully developed and published rider application on the Google Play Store.</li>
+                                            <li><a href="https://play.google.com/store/apps/details?id=com.sf.twiclodriver" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            
+                                             </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title" >
+                                            Fidoo Merchant Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="fidooMerchantDetails" aria-hidden="true">
+                                            <ul>
+                                            <li>Working on feature development, UI enhancements, bug fixes, support, and maintenance.</li>
+                                            <li><a href="https://play.google.com/store/apps/details?id=com.sf.twiclomerchant" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                            
                         </div>
                     </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">September 2019 - March 2021</div>
+                        <div class="timeline-date">16 September 2019 - 13 March 2021</div>
                         <div class="timeline-role">Android Developer</div>
                         <div class="timeline-company">Onedios Services Pvt LTD (Onedios), Noida</div>
                         <div class="timeline-description">
-                            <p>Led development for OneDios, India's single window to all brands, their warranties and AMCs.</p>
+                            <p>Developed applications for OneDios, India's single window to all brands, their warranties and AMCs.</p>
                             <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
-                            <p>Led development for multiple applications (OneDios, OneDios Business Partner, Pigeon Partner, OnePro CRM, Inalsa Connect).</p>
-                            <p>Managed deployment to Play Store for both Android and iOS platforms.</p>
+                            <p>Developed and managed the application from scratch and deployed it on the Play Store for Android platforms</p>
+                            <p>----------------------------------------------------------------------------------</p>
+                            <h1>Worked on <Project:-> Projects:-</Project:-></h1><br>
+
+                            <div class="project-list">
+                                        <div class="project-title" >
+                                            OneDios: Services Supermarket Application (Android Studio - Java)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="onediosCutomerDetails" aria-hidden="true">
+                                            <ul>
+                                             <li>Designed and implemented Login/Signup modules with OTP authentication.</li>
+                                             <li>Developed advanced filter functionality for improved content discovery.</li>
+                                             <li>Created a Raise Request module for submitting service or support requests.</li>
+                                             <li>Built a dynamic Dashboard using server-driven UI for flexible updates.</li>
+                                             <li>Integrated push notifications for real-time user engagement.</li>
+                                             <li>Added Google Maps APIs for live tracking and navigation.</li>
+                                             <li>Enabled dynamic image sharing on WhatsApp, Gmail, Facebook, and more.</li>
+                                             <li>Developed Add Product and Shop modules, enabling users to register, view, and manage their products and purchases.</li>
+                                             <li>Integrated PayUMoney payment gateway for smooth and secure transactions.</li>
+                                             <li>Built a Reward Module to incentivize user actions and promote app engagement.</li>
+                                             <li>Integrated Firebase Crashlytics to monitor real-time crashes and improve app stability and performance.</li>
+                                             <li>Implemented app sharing and update alert dialogs to promote app installs and keep users on the latest version.</li>
+                                             <li>Added in-app rating prompt to gather user feedback and improve app visibility on the Play Store.</li>
+                                             <li>Efficiently managed dynamic back stack using single-instance architecture for a fluid and intuitive navigation experience.</li>
+                                             <li>Implemented App Shortcut features for quick access to key modules via long press on the app icon, enhancing UX.</li>
+                                             <li>End-to-end responsibility for development and release, with the application successfully published and maintained on the Google Play Store.</li>
+
+                                             <li><a href="https://play.google.com/store/apps/details?id=com.evg.onedios" target="_blank" class="project-link" rel="noopener">Play Store Link</a></li>
+                                            
+                                             </ul>
+                                        </div>
+                                        </div>
+
+                                        <div class="project-list">
+                                        <div class="project-title" >
+                                            OneDios Business Partner Application (Android Studio - Kotlin)
+                                            <button class="toggle-btn" aria-expanded="false">Show more</button>
+                                        </div>
+                                        <div class="details" id="onediosPartnerDetails" aria-hidden="true">
+                                            <ul>
+                                               <li>Developed Add Product module for seamless product registration and management.</li>
+                                               <li>Implemented update alert dialog to prompt users when a new app version is available.</li>
+                                               <li>Enabled app sharing functionality to boost user acquisition.</li>
+                                               <li>Created advanced filter functionality for improved user navigation and content discovery.</li>
+                                               <li>Developed document upload feature to support user submissions.</li>
+                                               <li>Integrated location-based dealer listing to enhance user convenience.</li>
+                                               <li>Took ownership of end-to-end application maintenance, with all apps successfully published and live on the Google Play Store.</li>
+    
+                                               <li><a href="https://play.google.com/store/apps/details?id=com.onedieos.dealerapp.loginsignupactivity" target="_blank" 
+                                                class="project-link" rel="noopener">Play Store Link</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+
                         </div>
                     </div>
                 </div>
@@ -885,7 +1211,7 @@ a:hover {
     </section>
     
     <!-- Awards Section -->
-    <section id="awards">
+    <!--  <section id="awards">
         <div class="container">
             <div class="section-title">
                 <h2>Honors & Awards</h2>
@@ -921,6 +1247,8 @@ a:hover {
             </ul>
         </div>
     </section>
+    
+    -->
     
     <!-- Contact Section -->
     <section id="contact" style="background-color: #f9f9f9;">
